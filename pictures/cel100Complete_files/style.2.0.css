@@ -1,0 +1,408 @@
+/* Updated ngould 12/10/11 11:17 AM */
+
+#maincontent {
+	width:626px;
+	padding:0 0 50px;
+}
+#contentnav {
+	margin:8px 0 15px;
+}
+#contentnav .horznav
+{
+	margin: 0px auto;
+	width:416px;
+}
+/*#pwland #contentnav .horznav	{width:323px;}*/
+#contentnav .horznav i	{
+	color:#787878;
+}
+#contentnav .horznav li b	{
+	font-weight:normal;
+	color:#787878;
+}
+#sidebar #morelinks, #sidebar #sponsorship {
+	border-top:10px solid #ededed;
+	padding-top:5px;
+}
+#sidebar .noborder	{border:none !important;padding-top:0px !important;}
+#sidebarpromo	{
+	margin-top:40px;
+}
+#sidebarpromo img	{
+	width:160px;
+}
+#sidebarpromo h4 {
+	font:bold 13px/18px Georgia;
+}
+#sidebarpromo .attribution {
+	color:#666666;
+	font:bold 11px/11px verdana;
+}
+#sidebarpromo .attribution span.logo	{
+	background:url("http://images.forbes.com/media/assets/2010/adobe.gif") no-repeat scroll 0 0 transparent;
+	font-size:1px;
+	text-indent:-999px;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	width:28px;
+	height:30px;
+	position:relative;
+	top:-14px;	
+}
+#sidebarpromo p.dek {
+	color:#3C3C3C;
+	font:13px/19px Georgia;
+	margin:10px 0 3px;
+}
+#sidebarpromo .attribution {
+	color:#666666;
+	font-family:verdana;
+	font-weight:bold;
+}
+#filters, #morelinks, #sponsorship {
+	padding-bottom:30px;
+	float:right;
+}
+#abovefold #sponsorship .subhed {
+	margin:0;
+}
+.subhed {
+    color: #333333;
+    font: bold 12px/12px Georgia;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+#editbrand {
+	width:100%;
+	position:relative;
+	height:125px;
+}
+#editbrand hgroup {
+	background:url("http://images.forbes.com/media/assets/listlogos/forbes-400-logo.png") no-repeat scroll center 0 transparent;
+	display:block;
+	height:85px;
+}
+#pwland hgroup {
+	background:url("http://images.forbes.com/media/assets/listlogos/most-powerful-women-logo.png") no-repeat scroll center 0 transparent;
+	display:block;
+	height:78px;
+}
+#ppland hgroup {
+	background:url("http://images.forbes.com/media/assets/listlogos/most-powerful-people-logo.png") no-repeat scroll center 0 transparent;
+	display:block;
+	height:75px;
+}
+#editbrand hgroup h1, #editbrand hgroup h2 {
+	display: block;
+	font-size: 0;
+	overflow:hidden;
+	text-indent:-50px;
+	position:relative;
+	
+}
+#abovefold #maincontent .shareholder
+{
+	height: 25px;
+	margin: 0 auto;
+	position: relative;
+	top: -5px;
+	min-width:280px !important;
+}
+
+#abovefold .shareholder	.sharebox {padding:2px 6px 2px 21px !important;}
+#abovefold .shareholder	#sharesmall {margin:0 !important;}
+#abovefold .shareholder	#sharesmall li {margin:0 10px;}
+.innershare {
+	margin:0 0 0 15px;
+}
+
+/* Featured Articles */
+article#featarticle, #trio {
+	border-top:10px solid #ededed;
+	padding:20px 0 0;
+	margin:0 0 20px;
+}
+article#featarticle {
+	width:626px;
+}
+article .image {
+	width:270px;
+	margin:0 15px 0 0;
+}
+article .text {
+	width:341px;
+}
+article cite span.date {
+	border-left:1px solid #dbdbdb;
+	padding:0 0 0 .5em;
+	margin:0 0 0 .2em;
+}
+
+
+#trio article {
+	width:200px;
+	margin:0 13px 0 0;
+}
+#trio h4 {
+	margin:3px 0 0;
+}
+/* Featured Articles */
+
+
+/* List Content */
+#sidebar {
+	width:160px;
+}
+#sidebar section {
+	margin:0 0 25px;
+}
+#sidebar select {
+	margin:0 0 15px;
+}
+
+
+#thelist {
+	width:800px;
+	position:relative;
+}
+#thelist table {
+	width:100%;
+	clear:both;
+}
+#thelist table thead th {
+	padding:5px;
+	font:bold 11px/14px Verdana;
+	color:#0f2d5f;
+	vertical-align:bottom;
+	position:relative;
+	/*cursor:pointer;*/
+}
+#thelist table thead th a {cursor:pointer;}
+#thelist table thead th span {
+	font-weight: normal;
+}
+#thelist table thead th.active a {
+	color:#000;
+}
+
+#thelist table thead th.asc a {
+	background:url("http://images.forbes.com/media/assets/rl/icons.png") no-repeat scroll right -197px transparent;
+	padding:0 12px 0 0;
+}
+#thelist table thead th.desc a {
+	background:url("http://images.forbes.com/media/assets/rl/icons.png") no-repeat scroll right -208px transparent;
+	padding:0 12px 0 0;
+}
+#thelist table thead th.name {
+	padding-left:80px;
+	width:250px;
+}
+#ppland #thelist table thead th.name {
+	width:325px;
+}
+#thelist table tr td {
+	border-top:1px solid #ededed;
+}
+#thelist table tr:hover td {
+	background:#fff3d7;
+	border-color:#f0b82b;
+}
+#thelist table td {
+	font:normal 13px/16px Georgia;
+	color:#3c3c3c;
+	vertical-align:top;
+	padding:8px 5px;
+}
+#thelist table td img {
+	float:left;
+	margin:0 25px 0 0;
+	width:50px;
+	height:50px;
+}
+#thelist table .rank {
+	font:normal 37px/.6em Georgia;
+	color:#6d6d6d;
+	width: 70px;
+}
+#pwland #thelist table .rank, #pwfulllist #thelist table .rank   {
+	font:normal 37px/.6em Georgia;
+	color:#6d6d6d;
+	width: 45px;
+}
+#pwland #thelist table h4, #pwfulllist #thelist table h4, #ppland #thelist table h4, #ppfulllist #thelist table h4 {
+	font: normal 13px/16px Georgia;
+	color: #6D6D6D;
+	margin: 3px 0px 0px 0px;
+}
+#pwland #thelist table .age, #pwfulllist #thelist table .age {
+	width: 50px;
+}
+#thelist table .worth {
+	width:80px;
+	font-weight:bold;
+}
+#pwland #thelist table .cat, #pwfulllist #thelist table .cat {
+	width: 105px;
+}
+#pwland #thelist table .catrank, #pwfulllist #thelist table .catrank {
+	width: 127px;
+	padding-right: 0px;
+}
+#thelist table.listloading {
+	opacity:0.20;
+	filter:alpha(opacity = 20);
+	zoom:1;
+}
+#thelist .loading {
+	background:url('http://images.forbes.com/media/assets/rl/loading.gif') no-repeat 0 0;
+	width:16px;
+	height:16px;
+	position:absolute;
+	top:40%;
+	left:50%;
+}
+
+#thelist .paginate {
+	width:560px;
+}
+#thelist .paginate li {
+	width:10%;
+}
+#thelist .pagination .iconoverlay, #thelist .pagination .icon {
+	width:120px;
+	height:24px;
+}
+/*
+#thelist.complete .paginate {
+	width:556px;
+}
+*/
+#thelist.complete .paginate li {
+	width:25%;
+}
+#thelist.complete .pagination .back, #thelist.complete .pagination .next {
+	width:122px;
+	height:24px;
+}
+
+#video .buttonlink {
+	*margin-top:20px;
+}
+
+#video li {
+	width:150px;
+	float:left;
+	margin:0 13px 20px 0;
+}
+#video h5 {
+	margin:5px 0 0;
+}
+
+#gallerypreview {
+	margin:10px 0 0;
+}
+#featgallery {
+	width:397px;
+	margin:0 15px 0 0;
+	float:left;
+}
+#featgallery .gallery397 {
+	margin:0 0 7px;
+}
+#featgallery strong {
+	font:bold 11px Verdana;
+	color:#3c3c3c;
+}
+#featgallery p {
+	font:normal 11px Verdana;
+}
+#moregallery {
+	float:right;
+	width:234px;
+}
+#moregallery li {
+	margin:0 0 10px;
+}
+#moregallery .gallerythumb {
+	display:block;
+	float:left;
+	width:81px;
+	margin:0 8px 0 0;
+}
+
+#filters select	{width:159px;}	
+.tabs {
+	margin:0 0 15px;
+}
+.tabs li a {
+	color:#6d6d6d;
+	font-weight:bold;
+}
+.tabs li.active a {
+	color:#0f2d5f;
+}
+.tabular ul li {
+	margin:0 0 15px;
+}
+.morepopnews, .morevideo
+{
+	position:relative;
+	margin-right: 10px;
+	bottom:0px;
+	left:0px;
+	clear: both;
+}
+
+#popular	{width:310px !important;}
+#facebook {width:316px !important;}
+#twitter	{height:400px;}
+#blockad #sponsorship	{width: 100%; background-color: rgb(255, 255, 255); padding-bottom: 10px; text-align:left;}
+
+/* to add to universal */
+
+.money #tooltip, .buzz #tooltip {
+	position:absolute;
+	border:1px solid #f3b82c;
+	background:#fef6eb;
+	font:normal 10px/14px verdana;
+	padding:4px 8px;
+	color:#3c3c3c;
+	width:140px;
+	white-space:normal;
+	box-shadow: 0px 2px 5px 0px #ccc;
+	-webkit-box-shadow: 0px 2px 5px 0px #ccc;
+	-moz-box-shadow: 0px 2px 5px 0px #ccc;
+	z-index: 99;
+	zoom: 1;
+	text-decoration:none !important;
+/*
+	filter: 
+		progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=90,strength=3)
+		progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=180,strength=6)
+		progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=270,strength=3)
+		/*progid:DXImageTransform.Microsoft.Shadow(color=#aaaaaa,direction=360,strength=0);*/
+}
+
+.money #tooltip b, .buzz #tooltip b {
+	display:block;
+	background:url('http://images.forbes.com/media/assets/rl/sprite.png') no-repeat -97px -53px;
+	width:22px;
+	height:10px;
+	position:absolute;
+	top:100% !important;
+	left:87px;
+	z-index: 200;
+	margin:0;
+}
+.buzz #tooltip b {
+	left:67px !important;
+}
+#x2	{clear:both;}
+.st_ybuzz .stButton .chicklets {
+    background: url("http://w.sharethis.com/share4x/images/service-icons-sprite.png") no-repeat scroll 1px top transparent;
+}
+
+/* OVERRIDE FOOTER TABS BOLDING */
+#listwatchtabs .tabs li a {font-weight: normal !important;}

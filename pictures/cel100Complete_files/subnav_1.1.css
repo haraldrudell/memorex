@@ -1,0 +1,156 @@
+/* Updated ngould October 6, 2010 2:24:31 PM EDT */
+
+nav#subnav {
+	margin:20px 0 30px;
+	width:980px;
+	text-align:left;
+	font:bold 13px/18px Georgia;
+	overflow:hidden;
+}
+nav#subnav .bottom {border-bottom: 5px solid #1f3e74;}
+
+nav#subnav ul.listlinks li {
+	display:block;
+	float:left;
+	margin:0 7px 0 0;
+	width:156px;
+	height:46px;
+}
+nav#subnav ul.listlinks li.current	{width:184px;}
+nav#subnav ul.listlinks li.current, nav#subnav ul.listlinks li.current a {
+	color:#fff;
+	border-top:none;
+	background:#1f3e74;
+	font:normal 17px/18px Georgia;
+	padding:6px 0 0 6px;
+}
+nav#subnav ul.listlinks li.current a {padding-right:10px;}
+nav#subnav ul.listlinks li.current a:hover {
+	display:block;
+	background:#1f3e74;
+	border-color:#1f3e74;
+}
+
+nav#subnav ul.listlinks li.last {
+	width:130px;
+	margin:0;
+}
+nav#subnav ul.listlinks li a {
+	display:block;
+	color:#1f3e74;
+	height:45px;
+	border-top:1px solid #dadada;
+	padding:6px 0 0 6px;
+}
+nav#subnav ul.listlinks li a:hover {
+	display:block;
+	background:#fff3d7;
+	border-color:#f0b82b;
+}
+
+
+#listbrowser {
+	background:url('http://images.forbes.com/media/assets/rl/drkblue_grad.png') repeat-x 0px 0px  #102e60;
+	/*left:1px;*/
+	position:relative;
+	/*background:#0F2D5F;*/
+}
+#listtrigger {
+	color:#fff;
+	height:17px;
+	margin:0 auto;
+	position:relative;
+	width:250px;
+}
+#listtrigger:hover, #listnav a:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}
+#listtrigger span, #listnav a {
+	background-image:url('http://images.forbes.com/media/assets/rl/icons.png');
+	background-repeat:no-repeat;
+}
+.listexpand {
+	color:#069dec;
+}
+.listexpand span {
+	padding-right:15px;
+	background-position:right -271px;
+	left:78px;
+	position:absolute;
+}
+/*
+.listcollapse {
+	opacity:0.7;
+	filter:alpha(opacity = 70);
+	zoom:1;
+}
+*/
+.listcollapse span {
+	padding-right:15px;
+	background-position:right -311px;
+	font:13px/12px Verdana;
+	color:#8795AF !important;
+	position:absolute;
+	left:78px;
+	bottom:3px;
+}
+#listgallery {
+	display:none;
+}
+#listgallery ul li a:hover {
+	text-decoration:none;
+	background:#2b4775;
+}
+#listgallery ul li.active a {
+	background-color:#2b4775;
+}
+#listgallery .disabled .icon {
+	background-color:#111f46;
+}
+#listgallery ul li h5 .rank {
+	color:#fff;
+}
+#listgallery .iconoverlay {
+	margin:5px 0;
+}
+#listlink
+{
+	color: #FFF;
+	display: block;
+	font: 13px Verdana;
+	margin: 0 auto 0 auto;
+	position: relative;
+	text-align: center;
+	bottom: 10px;
+	/*left:450px;*/
+}
+#listnav {
+	padding:9px 10px 10px;
+	font:normal 13px Verdana;
+	color:#fff;
+	text-align:center;
+}
+#listnav a {
+	color:#fff;
+/*
+	display:block;
+	width:300px;
+*/
+}
+#listnav .previous {
+	padding-left:15px;
+	background-position:left -285px;
+	float:left;
+	text-align:left;
+}
+#listnav .next {
+	padding-right:15px;
+	background-position:right -257px;
+	float:right;
+	text-align:right;
+}
+#listnav div.empty {
+	height:10px;
+	width:415px;
+}

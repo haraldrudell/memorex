@@ -1,0 +1,24 @@
+{
+	"name": "celebrity",
+	"description": "Multi-player picture to name game",
+	"author": "Harald Rudell <harald@allgoodapps.com>",
+	"version": "0.0.1",
+	"contributors": [
+		{
+			"name": "Harald Rudell",
+			"email": "harald@allgoodapps.com",
+			"web": "http://blog.haraldrudell.com"
+		}
+	],
+	"repository": {
+		"type": "private git",
+		"url": "git+ssh://gt:cloudclearing"
+	},
+	"dependencies": {
+		"socket.io": "",
+		"request": "",
+		"express": "= 2.5.8",
+		"sass": "",
+		"ejs": ""
+	}
+}

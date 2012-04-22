@@ -1,0 +1,9 @@
+document.write('<!--  Rubicon Project Tag -->\n<!--  Site: Forbes USA   Zone: B_Lists_ATF Leader   Size: Leaderboard  -->\n');
+
+var rp_account   = '7881';
+var rp_site      = '12621';
+var rp_zonesize  = '36850-2';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+
+document.write('\n<script type=\"text/javascript\" src=\"http://ads.rubiconproject.com/ad/7881.js\"><\/script>');document.write('');

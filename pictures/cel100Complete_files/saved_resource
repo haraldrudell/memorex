@@ -1,0 +1,254 @@
+(function() {_vrq.push(['recom', []]); 
+var debug_print = function(msg){
+	if(vr_debug){
+		console.log(msg);
+	}
+};
+
+var element_ready = {
+	// Watch for an element to exist
+	
+	poll_interval : 20,
+	max_tries : 250,
+	check_id : function(element_id, tries, callback){
+		debug_print('element_ready.check_id(' + element_id + ')');
+		var element = document.getElementById(element_id);
+		if(element){
+			// Exists
+			callback();
+		}else{
+		
+			// Doesn't Exist
+			if(tries < element_ready.max_tries){
+				setTimeout(function(){
+					tries = tries + 1;
+					element_ready.check_id(element_id, tries, callback);
+				}, element_ready.poll_interval);
+			}
+		}
+	},
+	check_class : function(element_class, parent_id, tag_name, tries, callback){
+		// Class of element, any parent with an ID to reduce options, the type of tag that will have the class,
+		// the number of tries and the callback
+		debug_print('element_ready.check_class(' + element_class + ')');
+		var element = getElementsByClassName(element_class, parent_id, tag_name);
+		if(element.length > 0){
+			// At least 1 exists
+			callback();
+		}else{
+			// Doesn't Exist
+			if(tries < element_ready.max_tries){
+				setTimeout(function(){
+					tries = tries + 1;
+					element_ready.check_class(element_class, parent_id, tag_name, tries, callback);
+				}, element_ready.poll_interval);
+			}
+		}
+	},
+	
+	check_zone : function(zone, parent_id, tag_name, tries, callback){
+		debug_print('Checking zone');
+		debug_print('element_ready.check_zone(' + zone + ')');
+		var element = getElementByZone(zone, parent_id, tag_name);
+		if(element){
+			//Exists
+			callback();
+		}else{
+			if(tries < element_ready.max_tries){
+				setTimeout(function(){
+					tries = tries + 1;
+					element_ready.check_zone(zone, parent_id, tag_name, tries, callback);
+				}, element_ready.poll_interval);
+			}
+		}
+	}
+};
+
+var getElementByZone = function(zone_name, parent_id, tag_name){
+	debug_print('getElementByZone(' + zone_name + ')');
+	//For newer browser versions
+	if(document.querySelectorAll){
+		var zones_list = document.querySelectorAll('*[data-vr-zone]');
+		for(var i = 0, l = zones_list.length; i < l; i++){
+			if(zones_list[i].getAttribute('data-vr-zone') == zone_name){
+				return zones_list[i]
+			}
+		}
+		return;		
+	}
+	
+	//For older browsers
+	var parent_elem = document.getElementById(parent_id);
+	if(!parent_elem){
+		parent_elem = document;
+	}
+	var results = [];
+	var all_by_tag = parent_elem.getElementsByTagName(tag_name);
+	for(var i = 0, l = all_by_tag.length; i < l; i++){
+		var this_elem_zone_name = all_by_tag[i].getAttribute('data-vr-zone');
+		if(this_elem_zone_name && this_elem_zone_name == zone_name){
+			return all_by_tag[i];
+		}
+	}
+	
+};
+
+var getElementsByClassName = function(class_name, parent_id, tag_name){
+	// Cross browser getElementsByClassName. Also, more efficient by using parent_id and tag_name.
+	
+	var parent_elem = document.getElementById(parent_id);
+	if(!parent_elem){
+		parent_elem = document;
+	}
+	if(document.getElementsByClassName){
+		return parent_elem.getElementsByClassName(class_name);
+	}else{
+		var results = [];
+		var all_by_tag = parent_elem.getElementsByTagName(tag_name);
+		for(var i = 0, l = all_by_tag.length; i < l; i++){
+			var this_elem_classes = all_by_tag[i].className.split(' ');
+			for(var i2 = 0, l2 = this_elem_classes.length; i2 < l2; i2++){
+				if(this_elem_classes[i2].toLowerCase() == class_name.toLowerCase()){
+					results.push(all_by_tag[i]);
+					break;
+				}
+			}
+			
+			if(results.length > 0){
+				break;
+			}
+		}
+		return results;
+	}
+};
+
+
+function get_automations(){
+	// Load the automations from _vrq
+	if(_vrq.toString() == '[object Object]'){
+		debug_print('old style');
+		// New style _vrq
+		return _vrq.recom;
+	}else{
+		// Old style _vrq
+		for(var i = 0; i < _vrq.length; i++){
+			if(_vrq[i][0] == 'recom'){
+				debug_print(_vrq[i]);
+				return _vrq[i][1];
+			}
+		}
+	}
+}
+
+function parse_template(tmpl, vars, key_prefix){
+	// Take any template string and replace all vars
+	
+	if(tmpl){
+		
+		if(typeof(key_prefix) != 'undefined'){
+			// Example key: {{0.url}}
+			key_prefix = key_prefix.toString() + '.';
+		}else{
+			key_prefix = '';
+		}
+		for(var key in vars){
+			tmpl = tmpl.replace((new RegExp('{{' + key_prefix + key + '}}', 'g')), vars[key])
+		}
+		return tmpl;
+	}
+	return '';
+}
+
+
+function do_automation(section){
+	// Automate the given section. Assume it is ready.
+	debug_print('do_automation()');
+	
+	var final_output = '';
+	if(section.c.parent_tmpl && section.c.child_tmpl){
+		var children_html = '';
+		for(var i = 0; i < section.r.length; i++){
+			children_html += parse_template(section.c.child_tmpl, section.r[i]);
+		}
+		
+		final_output = parse_template(section.c.parent_tmpl, {children : children_html});
+		
+	}else if(section.c.full_tmpl){
+		
+		final_output = section.c.full_tmpl;
+		for(var i = 0; i < section.r.length; i++){
+			final_output = parse_template(final_output, section.r[i], i);
+			
+		}
+		
+	}
+	
+	// put final_output on the page (class or id) which is ready by now
+	if(section.c.container_class){
+		getElementsByClassName(section.c.container_class, section.c.container_class_parent_id, section.c.container_class_tag_name)[0].innerHTML = final_output;
+	}else if(section.c.container_id){
+		document.getElementById(section.c.container_id).innerHTML = final_output;
+	}else if(section.c.container_zone){
+		getElementByZone(section.c.container_zone, section.c.container_zone_parent_id, section.c.container_zone_tag_name).innerHTML = final_output;
+	}
+}
+
+function init(){
+	// Watch for each required element
+
+	debug_print('Init function');
+	
+	if(!document || !document.getElementById || !setTimeout){
+		debug_print('Returning false');
+		return false;
+	}
+	
+	var automations = get_automations();
+
+	debug_print('automations length');
+	debug_print(automations.length);
+	debug_print(automations);
+	
+	for(var i = 0; i < automations.length; i++){
+		
+		if(automations[i].c.enabled && automations[i].c){
+			
+			if(automations[i].c.script_prefix && automations[i].c.script_prefix.length > 0){
+				debug_print('eval(script_prefix)');
+				eval(automations[i].c.script_prefix);
+			}
+			
+			if(automations[i].c.container_class){
+				element_ready.check_class(automations[i].c.container_class, automations[i].c.container_class_parent_id, automations[i].c.container_class_tag_name, 0, (function(){
+					var this_automation = automations[i];
+					return function(){
+						do_automation(this_automation);
+					}
+				})());
+				
+			}else if(automations[i].c.container_id){
+				element_ready.check_id(automations[i].c.container_id, 0, (function(){
+					var this_automation = automations[i];
+					return function(){
+						do_automation(this_automation);
+					}
+				
+				})());
+				
+			}else if(automations[i].c.container_zone){
+				element_ready.check_zone(automations[i].c.container_zone, automations[i].c.container_zone_parent_id, automations[i].c.container_zone_tag_name, 0, (function(){
+					var this_automation = automations[i];
+					return function(){
+						do_automation(this_automation);
+					}
+				})());
+				
+			}			
+		}
+	}
+}
+
+var automations = [];
+var vr_debug = false;
+init();
+})();

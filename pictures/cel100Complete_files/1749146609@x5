@@ -1,0 +1,5 @@
+function OAS_RICH(position) {
+if (position == 'x5') {
+document.write ('<A HREF="http://ads.forbes.com/RealMedia/ads/click_lx.ads/forbes.com/specialslot/celebrity-100-11/1698674327/x5/OasDefault_v5/default/empty.gif/513651514330347253536b4143655057" target="_top"><IMG SRC="http://ads.forbes.com/RealMedia/ads/adstream_lx.ads/forbes.com/specialslot/celebrity-100-11/1698674327/x5/OasDefault_v5/default/empty.gif/513651514330347253536b4143655057?largeads=false"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>');
+}
+}
